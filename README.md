@@ -42,7 +42,7 @@ It allows users to search for real-time weather information by entering any city
 
 ## Live Demo
 
-Add your GitHub Pages link here after deployment.
+https://tngdks.github.io/weather-app/
 
 ## Author
 
