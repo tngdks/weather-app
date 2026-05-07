@@ -19,7 +19,7 @@ async function getWeather() {
     const response = await fetch(url);
     const data = await response.json();
 
-    console.log(data); // IMPORTANT: check actual API response
+    console.log(data); 
 
     if (!response.ok) {
       throw new Error(data.message || "Something went wrong");
@@ -32,8 +32,19 @@ async function getWeather() {
     document.getElementById("wind").textContent = `Wind Speed: ${data.wind.speed} m/s`;
 
     weatherCard.classList.remove("hidden");
+    document.getElementById("cityInput").value = "";
+
+    const iconCode = data.weather[0].icon;
+    document.getElementById("weatherIcon").src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
 
   } catch (err) {
     error.textContent = err.message;
   }
+
 }
+
+document.getElementById("cityInput").addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+      getWeather();
+  }
+});
