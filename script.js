@@ -31,11 +31,11 @@ async function getWeather() {
     document.getElementById("humidity").textContent = `Humidity: ${data.main.humidity}%`;
     document.getElementById("wind").textContent = `Wind Speed: ${data.wind.speed} m/s`;
 
-    weatherCard.classList.remove("hidden");
-    document.getElementById("cityInput").value = "";
-
     const iconCode = data.weather[0].icon;
     document.getElementById("weatherIcon").src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+    
+    weatherCard.classList.remove("hidden");
+    document.getElementById("cityInput").value = "";
 
   } catch (err) {
     error.textContent = err.message;
